@@ -25,6 +25,16 @@ BEGIN_RCPP
     return rcpp_result_gen;
 END_RCPP
 }
+// rcpp_parallel_rng_
+void rcpp_parallel_rng_(const Rcpp::NumericVector& seed);
+RcppExport SEXP _Romp_rcpp_parallel_rng_(SEXP seedSEXP) {
+BEGIN_RCPP
+    Rcpp::RNGScope rcpp_rngScope_gen;
+    Rcpp::traits::input_parameter< const Rcpp::NumericVector& >::type seed(seedSEXP);
+    rcpp_parallel_rng_(seed);
+    return R_NilValue;
+END_RCPP
+}
 // rcpp_sweep_
 Rcpp::NumericMatrix rcpp_sweep_(Rcpp::NumericMatrix x, Rcpp::NumericVector vec);
 RcppExport SEXP _Romp_rcpp_sweep_(SEXP xSEXP, SEXP vecSEXP) {
@@ -66,21 +76,22 @@ RcppExport SEXP R_num_procs();
 static const R_CallMethodDef CallEntries[] = {
     {"_Romp_rcpp_hello_", (DL_FUNC) &_Romp_rcpp_hello_, 0},
     {"_Romp_rcpp_sum_", (DL_FUNC) &_Romp_rcpp_sum_, 1},
+    {"_Romp_rcpp_parallel_rng_", (DL_FUNC) &_Romp_rcpp_parallel_rng_, 1},
     {"_Romp_rcpp_sweep_", (DL_FUNC) &_Romp_rcpp_sweep_, 2},
     {"_Romp_rcpp_primesbelow_", (DL_FUNC) &_Romp_rcpp_primesbelow_, 1},
-    {"c_hello",                 (DL_FUNC) &c_hello,                 0},
-    {"c_primesbelow",           (DL_FUNC) &c_primesbelow,           1},
-    {"c_sum",                   (DL_FUNC) &c_sum,                   1},
-    {"c_sweep",                 (DL_FUNC) &c_sweep,                 2},
-    {"f77_hello_wrap",          (DL_FUNC) &f77_hello_wrap,          0},
-    {"f77_primesbelow_wrap",    (DL_FUNC) &f77_primesbelow_wrap,    1},
-    {"f77_sum_wrap",            (DL_FUNC) &f77_sum_wrap,            1},
-    {"f77_sweep_wrap",          (DL_FUNC) &f77_sweep_wrap,          2},
-    {"f90_hello_wrap",          (DL_FUNC) &f90_hello_wrap,          0},
-    {"f90_primesbelow_wrap",    (DL_FUNC) &f90_primesbelow_wrap,    1},
-    {"f90_sum_wrap",            (DL_FUNC) &f90_sum_wrap,            1},
-    {"f90_sweep_wrap",          (DL_FUNC) &f90_sweep_wrap,          2},
-    {"R_num_procs",             (DL_FUNC) &R_num_procs,             0},
+    {"c_hello",                  (DL_FUNC) &c_hello,                  0},
+    {"c_primesbelow",            (DL_FUNC) &c_primesbelow,            1},
+    {"c_sum",                    (DL_FUNC) &c_sum,                    1},
+    {"c_sweep",                  (DL_FUNC) &c_sweep,                  2},
+    {"f77_hello_wrap",           (DL_FUNC) &f77_hello_wrap,           0},
+    {"f77_primesbelow_wrap",     (DL_FUNC) &f77_primesbelow_wrap,     1},
+    {"f77_sum_wrap",             (DL_FUNC) &f77_sum_wrap,             1},
+    {"f77_sweep_wrap",           (DL_FUNC) &f77_sweep_wrap,           2},
+    {"f90_hello_wrap",           (DL_FUNC) &f90_hello_wrap,           0},
+    {"f90_primesbelow_wrap",     (DL_FUNC) &f90_primesbelow_wrap,     1},
+    {"f90_sum_wrap",             (DL_FUNC) &f90_sum_wrap,             1},
+    {"f90_sweep_wrap",           (DL_FUNC) &f90_sweep_wrap,           2},
+    {"R_num_procs",              (DL_FUNC) &R_num_procs,              0},
     {NULL, NULL, 0}
 };
 

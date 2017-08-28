@@ -1,4 +1,5 @@
 PKG_CXXFLAGS = $(SHLIB_OPENMP_CXXFLAGS)
+CXX_STD = CXX11
 PKG_CFLAGS = $(SHLIB_OPENMP_CFLAGS)
 PKG_FFLAGS = $(SHLIB_OPENMP_FFLAGS)
 PKG_FCFLAGS = $(SHLIB_OPENMP_FCFLAGS)
@@ -16,4 +17,3 @@ $(SHLIB): $(OBJECTS)
 
 clean:
 	@rm -rf *.o *.mod *.d *.rc *.so *.dylib *.dll *.a *.lib $(SHLIB) $(OBJECTS)
-

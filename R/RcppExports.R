@@ -9,6 +9,10 @@ rcpp_sum_ <- function(x) {
     .Call('_Romp_rcpp_sum_', PACKAGE = 'Romp', x)
 }
 
+rcpp_parallel_rng_ <- function(seed) {
+    invisible(.Call('_Romp_rcpp_parallel_rng_', PACKAGE = 'Romp', seed))
+}
+
 rcpp_sweep_ <- function(x, vec) {
     .Call('_Romp_rcpp_sweep_', PACKAGE = 'Romp', x, vec)
 }

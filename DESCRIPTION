@@ -10,6 +10,7 @@ Description: A collection of examples utilizing OpenMP with R bindings.
 License: BSD 2-clause License + file LICENSE
 NeedsCompilation: yes
 LinkingTo: Rcpp
+SystemRequirements: C++11
 Imports:
     Rcpp (>= 0.11.0)
 ByteCompile: yes
