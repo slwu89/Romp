@@ -2,3 +2,5 @@ redocument
 ^\.travis\.yml$
 
 resrc
+^.*\.Rproj$
+^\.Rproj\.user$
