@@ -1,6 +1,7 @@
 #include <omp.h>
 #include <Rcpp.h>
 #include <random>
+#include <thread>
 
 
 // [[Rcpp::export]]
